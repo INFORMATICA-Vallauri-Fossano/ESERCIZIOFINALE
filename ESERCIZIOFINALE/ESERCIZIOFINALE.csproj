@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsBiciElettrica.cs" />
+    <Compile Include="dictBici.cs" />
     <Compile Include="frmFinale.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,6 +59,9 @@
     <Compile Include="listBici.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmFinale.resx">
+      <DependentUpon>frmFinale.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

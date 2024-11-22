@@ -9,18 +9,22 @@ namespace ESERCIZIOFINALE
 {
     internal class clsBiciElettrica : IBici, IMotore
     {
-        private string modello;
-        private string tipotelaio;
-        private string tipocambio;
-        private string colore;
-        private double peso;
+        public static int cont = 1;
 
+        private int codiceBici;
+        private string modello;
         private string marca;
+
         private int potenza;
 
         private double prezzo;
-        private int codiceBici;
-        public static int cont = 1;
+        private double peso;
+
+        private string tipotelaio;
+        private string tipocambio;
+        private string colore;
+
+
 
         public clsBiciElettrica(string modello, string tipotelaio, string tipocambio, string colore, string peso, string marca, string potenza, string prezzo)
         {
@@ -36,27 +40,39 @@ namespace ESERCIZIOFINALE
 
         }
 
+        //SCELTI DA CMB
+        public string Marca { get => marca; set => marca = value; }
         public string Modello { get => modello; set => modello = value; }
+        public string Potenza
+        {
+            get => potenza.ToString(); set
+            {
+                //int pot=Convert.ToInt32(value);
+                //if (pot<= 750 && pot>= 250) potenza=pot;
+                if (!int.TryParse(value, out potenza) || potenza > 750 || potenza < 250) throw new Exception("Numero non valido o maggiore di 750 o minore di 250");
+            }
+        }
+        //PROPERTY con ERRORE
         public string Tipotelaio
         {
             get => tipotelaio; set
             {
-                tipotelaio = ControlloAlmeno2Lettere(value);
+                tipotelaio = ControlloAlmeno2Lettere(value," per il TELAIO");
             }
         }
         public string Tipocambio
         {
             get => tipocambio; set
             {
-                tipotelaio = ControlloAlmeno2Lettere(value);
+                tipocambio = ControlloAlmeno2Lettere(value, " per il CAMBIO");
 
             }
         }
 
-        private string ControlloAlmeno2Lettere(string value)
+        private string ControlloAlmeno2Lettere(string value,string more="")
         {
             if (Regex.IsMatch(value, @"^\w{2,}$")) return value;
-            else throw new Exception("Almeno 2 Carattei ALfanumerici");
+            else throw new Exception("Almeno 2 Carattei ALfanumerici"+more);
         }
 
         public string Colore
@@ -67,12 +83,11 @@ namespace ESERCIZIOFINALE
                 else colore = value;
             }
         }
-        public string Marca { get => marca; set => marca = value; }
         public string Peso
         {
             get => peso.ToString(); set
             {
-                if (!Regex.IsMatch(value, @"^\d+[.,]\d{2}$")) throw new Exception("Numero decimale non valido");
+                if (!Regex.IsMatch(value, @"^\d+[.,]\d{2}$")) throw new Exception("Numero decimale non valido per il PESO");
                 else peso = Convert.ToDouble(value);
             }
         }
@@ -80,17 +95,12 @@ namespace ESERCIZIOFINALE
         {
             get => prezzo.ToString(); set
             {
-                if (!Regex.IsMatch(value, @"^\d+[.,]\d{2}$")) throw new Exception("Numero decimale non valido");
-                else prezzo = Convert.ToDouble(value);
+                if (!Regex.IsMatch(value, @"^\d+[.,]\d{2}$")) throw new Exception("Numero decimale non valido per il PREZZO");
+                else
+                    prezzo = Convert.ToDouble(value);
             }
         }
-        public string Potenza
-        {
-            get => potenza.ToString(); set
-            {
-                if (!int.TryParse(value, out potenza) || potenza > 750 || potenza < 250) throw new Exception("Numero non valido o maggiore di 750 o minore di 250");
-            }
-        }
+        
 
         public string CodiceBici { get => codiceBici.ToString(); }
 
