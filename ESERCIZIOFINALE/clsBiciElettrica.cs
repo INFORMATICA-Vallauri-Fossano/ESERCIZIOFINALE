@@ -20,7 +20,8 @@ namespace ESERCIZIOFINALE
 
         private double prezzo;
         private int codiceBici;
-        private static int cont = 1;
+        public static int cont = 1;
+
         public clsBiciElettrica(string modello, string tipotelaio, string tipocambio, string colore, string peso, string marca, string potenza, string prezzo)
         {
             Modello = modello;
@@ -32,14 +33,21 @@ namespace ESERCIZIOFINALE
             Potenza = potenza;
             Prezzo = prezzo;
             codiceBici = cont++;
-           
+
         }
 
         public string Modello { get => modello; set => modello = value; }
-        public string Tipotelaio { get => tipotelaio; set {
+        public string Tipotelaio
+        {
+            get => tipotelaio; set
+            {
                 tipotelaio = ControlloAlmeno2Lettere(value);
-            } }
-        public string Tipocambio { get => tipocambio; set {
+            }
+        }
+        public string Tipocambio
+        {
+            get => tipocambio; set
+            {
                 tipotelaio = ControlloAlmeno2Lettere(value);
 
             }
@@ -55,24 +63,37 @@ namespace ESERCIZIOFINALE
         {
             get => colore; set
             {
-                if (!Regex.IsMatch(value, @"^(bianco|nero|giallo|blu|altro)$",RegexOptions.IgnoreCase)) throw new Exception("Colore non valido");
+                if (!Regex.IsMatch(value, @"^(bianco|nero|giallo|blu|altro)$", RegexOptions.IgnoreCase)) throw new Exception("Colore non valido");
                 else colore = value;
             }
         }
         public string Marca { get => marca; set => marca = value; }
-        public string Peso { get => peso.ToString(); set {
+        public string Peso
+        {
+            get => peso.ToString(); set
+            {
                 if (!Regex.IsMatch(value, @"^\d+[.,]\d{2}$")) throw new Exception("Numero decimale non valido");
-                else peso=Convert.ToDouble(value);
-            } }
-        public string Prezzo { get => prezzo.ToString(); set {
+                else peso = Convert.ToDouble(value);
+            }
+        }
+        public string Prezzo
+        {
+            get => prezzo.ToString(); set
+            {
                 if (!Regex.IsMatch(value, @"^\d+[.,]\d{2}$")) throw new Exception("Numero decimale non valido");
                 else prezzo = Convert.ToDouble(value);
-            } }
-        public string Potenza { get => potenza.ToString(); set
+            }
+        }
+        public string Potenza
+        {
+            get => potenza.ToString(); set
             {
                 if (!int.TryParse(value, out potenza) || potenza > 750 || potenza < 250) throw new Exception("Numero non valido o maggiore di 750 o minore di 250");
             }
         }
+
+        public string CodiceBici { get => codiceBici.ToString(); }
+
         string IBici.Visualizza()
         {
             return Modello + "-" + Tipotelaio + "-" + Tipocambio + "-" + Colore + "-" + Peso;
@@ -81,12 +102,11 @@ namespace ESERCIZIOFINALE
         string IMotore.Visualizza()
         {
             return Marca + "-" + Potenza;
-
         }
 
         public string Visualizza()
         {
-            return ((IBici)this).Visualizza() +" | "+ ((IMotore)this).Visualizza();
+            return ((IBici)this).Visualizza() + " | " + ((IMotore)this).Visualizza();
         }
     }
 }
