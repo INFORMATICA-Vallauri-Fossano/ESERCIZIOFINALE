@@ -66,5 +66,33 @@ namespace ESERCIZIOFINALE
             }
 
         }
+
+        private void btnCercaBiciDictionary_Click(object sender, EventArgs e)
+        {
+            string output;
+            try
+            {
+                output = dizionarioBici.LeggerePrezzoPerChiave(txtCodiceBici.Text);
+            }
+            catch (Exception ex)
+            {
+                output = ex.Message;
+            }
+                MessageBox.Show(output);
+        }
+
+        private void btnElimina_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                listaBici.eliminare(dgvListaBici, Convert.ToInt32(txtCodiceBici.Text)-1);
+                //bisogna anche eliminarlo dal dizionario?
+                dizionarioBici.EliminaValore(txtCodiceBici.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

@@ -46,6 +46,10 @@
             this.label8 = new System.Windows.Forms.Label();
             this.cmbModello = new System.Windows.Forms.ComboBox();
             this.btnAggiungi = new System.Windows.Forms.Button();
+            this.txtCodiceBici = new System.Windows.Forms.TextBox();
+            this.btnCercaBiciDictionary = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.btnElimina = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaBici)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPotenza)).BeginInit();
             this.SuspendLayout();
@@ -207,11 +211,50 @@
             this.btnAggiungi.UseVisualStyleBackColor = true;
             this.btnAggiungi.Click += new System.EventHandler(this.btnAggiungi_Click);
             // 
+            // txtCodiceBici
+            // 
+            this.txtCodiceBici.Location = new System.Drawing.Point(137, 322);
+            this.txtCodiceBici.Name = "txtCodiceBici";
+            this.txtCodiceBici.Size = new System.Drawing.Size(250, 22);
+            this.txtCodiceBici.TabIndex = 20;
+            // 
+            // btnCercaBiciDictionary
+            // 
+            this.btnCercaBiciDictionary.Location = new System.Drawing.Point(137, 350);
+            this.btnCercaBiciDictionary.Name = "btnCercaBiciDictionary";
+            this.btnCercaBiciDictionary.Size = new System.Drawing.Size(87, 22);
+            this.btnCercaBiciDictionary.TabIndex = 21;
+            this.btnCercaBiciDictionary.Text = "CERCA";
+            this.btnCercaBiciDictionary.UseVisualStyleBackColor = true;
+            this.btnCercaBiciDictionary.Click += new System.EventHandler(this.btnCercaBiciDictionary_Click);
+            // 
+            // label9
+            // 
+            this.label9.Location = new System.Drawing.Point(12, 321);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(119, 23);
+            this.label9.TabIndex = 22;
+            this.label9.Text = "CODICE BICI";
+            // 
+            // btnElimina
+            // 
+            this.btnElimina.Location = new System.Drawing.Point(300, 350);
+            this.btnElimina.Name = "btnElimina";
+            this.btnElimina.Size = new System.Drawing.Size(87, 22);
+            this.btnElimina.TabIndex = 23;
+            this.btnElimina.Text = "ELIMINA";
+            this.btnElimina.UseVisualStyleBackColor = true;
+            this.btnElimina.Click += new System.EventHandler(this.btnElimina_Click);
+            // 
             // frmFinale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1210, 450);
+            this.Controls.Add(this.btnElimina);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.btnCercaBiciDictionary);
+            this.Controls.Add(this.txtCodiceBici);
             this.Controls.Add(this.btnAggiungi);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.cmbModello);
@@ -259,6 +302,10 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cmbModello;
         private System.Windows.Forms.Button btnAggiungi;
+        private System.Windows.Forms.TextBox txtCodiceBici;
+        private System.Windows.Forms.Button btnCercaBiciDictionary;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btnElimina;
     }
 }
 

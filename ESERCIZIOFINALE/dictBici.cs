@@ -35,5 +35,10 @@ namespace ESERCIZIOFINALE
             output = output.Split('-')[2];
             return output;
         }
+        public void EliminaValore(string key)
+        {
+            if (dictionary.ContainsKey(key)) dictionary.Remove(key);
+            else throw new Exception("Codice bici non esistente");
+        }
     }
 }

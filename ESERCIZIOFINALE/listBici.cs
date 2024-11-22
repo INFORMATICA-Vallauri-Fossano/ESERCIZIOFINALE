@@ -30,11 +30,12 @@ namespace ESERCIZIOFINALE
         }
         public void eliminare(DataGridView dgv, int index)
         {
-            if (index > 0 && index < listBiciElettrica.Count)
+            if (index >= 0 && index < listBiciElettrica.Count)
             {
                 listBiciElettrica.RemoveAt(index);
                 visualizzare(dgv);
             }
+            else throw new Exception("Codice bici non esistente");
         }
     }
 }
