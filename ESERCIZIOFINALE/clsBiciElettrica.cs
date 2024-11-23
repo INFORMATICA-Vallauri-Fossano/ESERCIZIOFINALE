@@ -71,7 +71,7 @@ namespace ESERCIZIOFINALE
 
         private string ControlloAlmeno2Lettere(string value,string more="")
         {
-            if (Regex.IsMatch(value, @"^\w{2,}$")) return value;
+            if (Regex.IsMatch(value, @"^[a-zA-Z0-9]{2,}$")) return value;
             else throw new Exception("Almeno 2 Carattei ALfanumerici"+more);
         }
 
